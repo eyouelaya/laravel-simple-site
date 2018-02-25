@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::any('any',function(){
+    return "Anything is possible";
+}); 
+
+Route::get('newpage','MyController@returningASimplePage');

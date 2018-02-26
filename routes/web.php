@@ -11,12 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// }); 
+Route::get('/','PagesController@index');
+Route::get('/about','PagesController@showAbout');
+Route::get('/services','PagesController@showServices');
 
-Route::any('any',function(){
-    return "Anything is possible";
-}); 
-
-Route::get('newpage','MyController@returningASimplePage');

@@ -16,7 +16,7 @@
 // }); 
 Route::get('/','PagesController@index');
 Route::get('/about','PagesController@showAbout');
-Route::get('/services','PagesController@showServices');
+Route::get('/services','PagesController@showServices'); 
 
 Route::resource('posts', 'PostController');
 

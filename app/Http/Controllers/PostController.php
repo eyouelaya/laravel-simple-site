@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -13,7 +14,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::orderBy('title','desc')->get();
+        // $posts = Post::all();
+        // return Post::where('title','Post two')->get();
+        return view('post.index')->with('posts',$posts);
     }
 
     /**
@@ -44,8 +48,9 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    { 
+        $post = Post::find($id);
+        return view('post.show')->with('post',$post);
     }
 
     /**
@@ -56,7 +61,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+       
     }
 
     /**

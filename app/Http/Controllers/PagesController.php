@@ -8,6 +8,7 @@ class PagesController extends Controller
 {
     public function index(){
         $title = 'Welcome to Laravel';
+        //git
         return view('pages.index')->with('title', $title);
     }
     public function showAbout(){

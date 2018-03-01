@@ -92,7 +92,7 @@ class PostController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
-        //create post
+        //update post
         $post = Post::find($id);
         $post->title = $request->input('title');
         $post->body = $request->input('body');
@@ -109,6 +109,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return redirect('/posts')->with('success','Post Removed');
+
     }
 }

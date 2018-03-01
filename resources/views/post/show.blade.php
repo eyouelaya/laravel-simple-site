@@ -7,4 +7,5 @@
     <div>
         {{$post->body}}
     </div>
+    <a href="/posts/{{$post->id}}/edit" class="btn btn-primary"> Edit </a>
 @endsection

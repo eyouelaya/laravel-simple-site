@@ -2,8 +2,9 @@
 
 @section('content')
     <a href="/posts" class="btn btn-default">Go Back</a>
-    <div class="well">
-        <h1>{{$post->title}}</h1>
+    <div class="well"> 
+        <img src="/storage/cover_images/{{$post->cover_image}}" width="80%" height="auto" alt="image">
+            <h1>{{$post->title}}</h1>
         <small>Written on <strong>{{$post->created_at}}</strong> by <strong>{{$post->user->name}}</strong></small>
         <div>
             {{$post->body}}
@@ -16,6 +17,6 @@
                     {{ Form::submit('Delete', ['class' => 'btn btn-danger', 'style' => 'background-color:red; margin-top:10px;']) }}
                 {!! Form::close() !!}
             @endif
-        @endif
+        @endif 
     </div>
 @endsection

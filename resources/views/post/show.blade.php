@@ -8,10 +8,14 @@
         <div>
             {{$post->body}}
         </div> 
-        <a href="/posts/{{$post->id}}/edit" class="btn btn-primary pull-left" style="margin-right:20px; margin-top:10px;"> Edit </a>
-        {!! Form::open(['action' => ['PostController@destroy', $post->id], 'method' => 'POST']) !!}
-            {{Form::hidden('_method', 'DELETE')}}
-            {{ Form::submit('Delete', ['class' => 'btn btn-danger', 'style' => 'background-color:red; margin-top:10px;']) }}
-        {!! Form::close() !!}
+        @if(!Auth::guest())
+            @if(Auth::user()->id == $post->user_id)
+                <a href="/posts/{{$post->id}}/edit" class="btn btn-primary pull-left" style="margin-right:20px; margin-top:10px;"> Edit </a>
+                {!! Form::open(['action' => ['PostController@destroy', $post->id], 'method' => 'POST']) !!}
+                    {{Form::hidden('_method', 'DELETE')}}
+                    {{ Form::submit('Delete', ['class' => 'btn btn-danger', 'style' => 'background-color:red; margin-top:10px;']) }}
+                {!! Form::close() !!}
+            @endif
+        @endif
     </div>
 @endsection

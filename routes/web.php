@@ -20,3 +20,7 @@ Route::get('/services','PagesController@showServices');
 
 Route::resource('posts', 'PostController');
 
+
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index');

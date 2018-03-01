@@ -11,29 +11,24 @@
                         <a href="/posts/create" class="btn btn-primary"> Create Post</a>  
                         @if(count($posts) > 0)
                          <h3>Your Blog Posts </h3>
-                        <table class="table table-striped">
-                            <tr>
-                                <th>Title</th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                            @foreach($posts as $post)
-                                <tr>
-                                    <td>{{$post->title}}</td>
-                                    <td><a href="/posts/{{$post->id}}/edit">Edit</a></td>
-                                    <td> 
-                                        {!! Form::open(['action' => ['PostController@destroy', $post->id], 'method' => 'POST']) !!}
-                                             {{Form::hidden('_method', 'DELETE')}}
-                                            {{ Form::submit('Delete',['style' => 'color:red; background-color:transparent; border:none;']) }}
-                                        {!! Form::close() !!}
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </table>
-                        @else
-                             <h3>Your Have No Blog Posts </h3>
-                        @endif
-
+                           @if(count($posts) > 0)
+                                @foreach($posts as $post)
+                                    <div class="well">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4">
+                                                <img src="/storage/cover_images/{{$post->cover_image}}" width="100%">
+                                            </div>
+                                            <div class="col-md-8 col-sm-8">
+                                                <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
+                                                <small>Written on <strong>{{$post->created_at}}</strong> by <strong>{{$post->user->name}}</strong></small> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach 
+                            @else
+                                <p>No posts found</p>
+                            @endif
+                            @endif
                 </div>
             </div>
         </div>

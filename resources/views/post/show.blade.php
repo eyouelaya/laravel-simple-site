@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="/posts" class="btn btn-default">Go Back</a>
+    @if(isset($page))
+        <a href="/dashboard" class="btn btn-default">Go Back</a>
+    @else
+        <a href="/posts" class="btn btn-default">Go Back</a>
+    @endif
     <br><br>
     <div class="well"> 
         <img src="/storage/cover_images/{{$post->cover_image}}" width="80%" height="auto" alt="image">

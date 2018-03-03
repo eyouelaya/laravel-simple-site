@@ -19,7 +19,7 @@
                                                 <img src="/storage/cover_images/{{$post->cover_image}}" width="100%">
                                             </div>
                                             <div class="col-md-8 col-sm-8">
-                                                <h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
+                                                <h3><a href="/posts/{{$post->id}}/{{$page=1}}">{{$post->title}}</a></h3>
                                                 <small>Written on <strong>{{$post->created_at}}</strong> by <strong>{{$post->user->name}}</strong></small> 
                                             </div>
                                         </div>

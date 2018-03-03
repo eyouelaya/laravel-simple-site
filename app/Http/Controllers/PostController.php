@@ -91,11 +91,15 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    { 
+    {  
         $post = Post::find($id);
-        return view('post.show')->with('post',$post);
+        return view('post.show',compact('post','page'));
     }
-
+    public function showPost($id,$page){
+        if(isset($id))
+        $post = Post::find($id);
+        return view('post.show',compact('post','page'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
